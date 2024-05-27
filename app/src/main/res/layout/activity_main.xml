@@ -2,70 +2,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/transparent"
+    android:background="@drawable/testetres"
     tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/testeone"
-        android:scaleType="centerCrop"
-        android:alpha="0.5" />
-
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DigiFocus"
-        android:textColor="@color/almost_black"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"
-        android:padding="4dp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="167dp"
-        android:layout_height="136dp"
-        android:layout_below="@id/textViewTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:src="@drawable/patamon" />
-
-    <TextView
-        android:id="@+id/textViewTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="25:00"
-        android:textSize="48sp" />
 
     <Button
         android:id="@+id/buttonStartPause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewTimer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
         android:text="Iniciar" />
 
-    <Spinner
-        android:id="@+id/spinnerTimeOptions"
+    <TextView
+        android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonStartPause"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="32dp"
+        android:text="25:00"
+        android:textSize="48sp" />
 
-    <Spinner
-        android:id="@+id/spinnerImageOptions"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="167dp"
+        android:layout_height="136dp"
+        android:layout_below="@id/textViewTimer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/patamon" />
+
+    <ProgressBar
+        android:id="@+id/progressBarXP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
+        android:progress="0" />
+
+
+    <Button
+        android:id="@+id/settingsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerTimeOptions"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:text="Configurações"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"/>
+
 </RelativeLayout>
