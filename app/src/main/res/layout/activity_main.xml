@@ -5,45 +5,43 @@
     android:background="@drawable/testetres"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonStartPause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="Iniciar" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="167dp"
+        android:layout_height="136dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/digimoncorno" />
 
     <TextView
         android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonStartPause"
+        android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="25:00"
         android:textSize="48sp" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="167dp"
-        android:layout_height="136dp"
-        android:layout_below="@id/textViewTimer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:src="@drawable/patamon" />
 
     <ProgressBar
         android:id="@+id/progressBarXP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
+        android:layout_below="@id/textViewTimer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
         style="?android:attr/progressBarStyleHorizontal"
         android:max="100"
         android:progress="0" />
 
+    <Button
+        android:id="@+id/buttonStartPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBarXP"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Iniciar" />
 
     <Button
         android:id="@+id/settingsButton"
