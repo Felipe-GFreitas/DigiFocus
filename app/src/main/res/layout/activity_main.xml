@@ -43,12 +43,16 @@
         android:layout_marginTop="16dp"
         android:text="Iniciar" />
 
-    <Button
+    <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Configurações"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_settings"
+        android:contentDescription="@string/settings"
+        android:padding="4dp" />
+
 
 </RelativeLayout>

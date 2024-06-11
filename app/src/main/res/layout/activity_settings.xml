@@ -28,5 +28,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="Aplicar" />
-
 </RelativeLayout>

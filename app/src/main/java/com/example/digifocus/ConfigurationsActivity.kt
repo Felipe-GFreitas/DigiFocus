@@ -1,4 +1,5 @@
 package com.example.digifocus
+
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -26,9 +27,14 @@ class ConfigurationsActivity : AppCompatActivity() {
         spinnerImageOptions.adapter = imageAdapter
 
         applyButton.setOnClickListener {
-
             val selectedTime = spinnerTimeOptions.selectedItem.toString()
             val selectedImage = spinnerImageOptions.selectedItem.toString()
+
+            val sharedPreferences = getSharedPreferences("DigiFocusPrefs", MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.putString("timerTime", selectedTime)
+            editor.putString("selectedImage", selectedImage)
+            editor.apply()
 
             finish()
         }
