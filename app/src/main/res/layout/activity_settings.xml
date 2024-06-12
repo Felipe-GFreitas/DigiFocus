@@ -13,19 +13,10 @@
         android:layout_marginTop="16dp" />
 
     <Spinner
-        android:id="@+id/spinnerImageOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerTimeOptions"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
-
-    <!-- Novo Spinner para atividades -->
-    <Spinner
         android:id="@+id/spinnerActivityOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerImageOptions"
+        android:layout_below="@id/spinnerTimeOptions"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 

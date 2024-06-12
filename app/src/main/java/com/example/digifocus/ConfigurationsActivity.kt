@@ -13,34 +13,26 @@ class ConfigurationsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         val spinnerTimeOptions: Spinner = findViewById(R.id.spinnerTimeOptions)
-        val spinnerImageOptions: Spinner = findViewById(R.id.spinnerImageOptions)
         val spinnerActivityOptions: Spinner = findViewById(R.id.spinnerActivityOptions)
         val applyButton: Button = findViewById(R.id.applyButton)
 
         val timeOptions = arrayOf("10:00", "15:00", "20:00", "25:00")
-        val timeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, timeOptions)
+        val timeAdapter = ArrayAdapter(this, R.layout.spinner_item, timeOptions)
         timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerTimeOptions.adapter = timeAdapter
 
-        val imageOptions = arrayOf("egg1", "egg2", "egg3", "egg4")
-        val imageAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, imageOptions)
-        imageAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerImageOptions.adapter = imageAdapter
-
         val activityOptions = arrayOf("Estudar", "Trabalhar", "Exercitar", "Ler")
-        val activityAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, activityOptions)
+        val activityAdapter = ArrayAdapter(this, R.layout.spinner_item, activityOptions)
         activityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerActivityOptions.adapter = activityAdapter
 
         applyButton.setOnClickListener {
             val selectedTime = spinnerTimeOptions.selectedItem.toString()
-            val selectedImage = spinnerImageOptions.selectedItem.toString()
             val selectedActivity = spinnerActivityOptions.selectedItem.toString()
 
             val sharedPreferences = getSharedPreferences("DigiFocusPrefs", MODE_PRIVATE)
             val editor = sharedPreferences.edit()
             editor.putString("timerTime", selectedTime)
-            editor.putString("selectedImage", selectedImage)
             editor.putString("selectedActivity", selectedActivity)
             editor.apply()
 
