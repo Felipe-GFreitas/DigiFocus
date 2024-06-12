@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/testetres"
+    android:background="@drawable/configback"
     tools:context=".ConfigurationsActivity">
 
     <Spinner
@@ -20,11 +20,20 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
+    <!-- Novo Spinner para atividades -->
+    <Spinner
+        android:id="@+id/spinnerActivityOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerImageOptions"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
     <Button
         android:id="@+id/applyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerImageOptions"
+        android:layout_below="@id/spinnerActivityOptions"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:text="Aplicar" />

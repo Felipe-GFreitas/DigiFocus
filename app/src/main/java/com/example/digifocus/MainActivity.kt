@@ -1,4 +1,5 @@
 package com.example.digifocus
+
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var textViewTimer: TextView
+    private lateinit var textViewActivity: TextView
     private lateinit var buttonStartPause: Button
     private lateinit var countDownTimer: CountDownTimer
     private lateinit var imageView: ImageView
@@ -20,14 +22,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var settingsButton: ImageButton
 
     private var isTimerRunning = false
-    private var timeLeftInMillis: Long = 1500000 // Default 25 minutes in milliseconds
+    private var timeLeftInMillis: Long = 1500000
     private var startTimeInMillis: Long = 1500000
 
     private val digimonImages = listOf(
-        R.drawable.digimon_level1,
-        R.drawable.digimon_level2,
-        R.drawable.digimon_level3,
-        R.drawable.digimon_level4
+        R.drawable.level01_a,
+        R.drawable.level02_a,
+        R.drawable.level03_a,
+        R.drawable.level04_a,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         textViewTimer = findViewById(R.id.textViewTimer)
+        textViewActivity = findViewById(R.id.textViewActivity)
         buttonStartPause = findViewById(R.id.buttonStartPause)
         imageView = findViewById(R.id.imageView)
         progressBarXP = findViewById(R.id.progressBarXP)
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         updateCountDownText()
         updateProgressBar()
+        loadSelectedActivity()  // Carregar e mostrar a atividade selecionada
     }
 
     override fun onResume() {
@@ -64,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         loadTimerSettings()
         updateCountDownText()
         updateProgressBar()
+        loadSelectedActivity()  // Carregar e mostrar a atividade selecionada
     }
 
     private fun loadTimerSettings() {
@@ -76,6 +81,12 @@ class MainActivity : AppCompatActivity() {
             startTimeInMillis = (minutes * 60 + seconds) * 1000
             timeLeftInMillis = startTimeInMillis
         }
+    }
+
+    private fun loadSelectedActivity() {
+        val sharedPreferences = getSharedPreferences("DigiFocusPrefs", Context.MODE_PRIVATE)
+        val selectedActivity = sharedPreferences.getString("selectedActivity", "Atividade")
+        textViewActivity.text = selectedActivity
     }
 
     private fun startTimer() {

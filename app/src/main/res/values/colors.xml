@@ -4,5 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFEB3B</color>
     <color name="almost_black">#212121</color>
+    <color name="timer_color">#8E007E</color>
+
 
 </resources>

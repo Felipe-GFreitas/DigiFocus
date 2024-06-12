@@ -2,15 +2,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/testetres"
+    android:background="@drawable/backmain"
     tools:context=".MainActivity">
+
+    <!-- TextView para mostrar a atividade selecionada -->
+    <TextView
+        android:id="@+id/textViewActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:text="Atividade" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="167dp"
         android:layout_height="136dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/digimoncorno" />
+        android:src="@drawable/digimon_level4" />
 
     <TextView
         android:id="@+id/textViewTimer"
@@ -19,6 +31,7 @@
         android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
+        android:textColor="@color/timer_color"
         android:text="25:00"
         android:textSize="48sp" />
 
@@ -45,14 +58,12 @@
 
     <ImageButton
         android:id="@+id/settingsButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="47dp"
+        android:layout_height="42dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_settings"
         android:contentDescription="@string/settings"
-        android:padding="4dp" />
-
-
+        android:padding="4dp"
+        android:src="@drawable/config" />
 </RelativeLayout>
