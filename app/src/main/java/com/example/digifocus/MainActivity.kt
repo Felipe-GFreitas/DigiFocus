@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewTimer: TextView
     private lateinit var textViewActivity: TextView
     private lateinit var buttonStartPause: Button
+    private lateinit var buttonReset: Button
     private lateinit var countDownTimer: CountDownTimer
     private lateinit var imageView: ImageView
     private lateinit var progressBarXP: ProgressBar
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         R.drawable.level02_a,
         R.drawable.level03_a,
         R.drawable.level04_a,
+        R.drawable.level05_a,
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         textViewTimer = findViewById(R.id.textViewTimer)
         textViewActivity = findViewById(R.id.textViewActivity)
         buttonStartPause = findViewById(R.id.buttonStartPause)
+        buttonReset = findViewById(R.id.buttonReset)
         imageView = findViewById(R.id.imageView)
         progressBarXP = findViewById(R.id.progressBarXP)
         settingsButton = findViewById(R.id.settingsButton)
@@ -58,9 +61,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        buttonReset.setOnClickListener {
+            resetTimer()
+        }
+
         updateCountDownText()
         updateProgressBar()
-        loadSelectedActivity()  // Carregar e mostrar a atividade selecionada
+        loadSelectedActivity()
     }
 
     override fun onResume() {
@@ -68,7 +75,7 @@ class MainActivity : AppCompatActivity() {
         loadTimerSettings()
         updateCountDownText()
         updateProgressBar()
-        loadSelectedActivity()  // Carregar e mostrar a atividade selecionada
+        loadSelectedActivity()
     }
 
     private fun loadTimerSettings() {
@@ -100,20 +107,31 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 isTimerRunning = false
-                buttonStartPause.text = "Start"
+                buttonStartPause.text = "Iniciar"
                 progressBarXP.progress = 100
                 updateDigimonImage()
             }
         }.start()
 
         isTimerRunning = true
-        buttonStartPause.text = "Pause"
+        buttonStartPause.text = "Pausar"
     }
 
     private fun pauseTimer() {
         countDownTimer.cancel()
         isTimerRunning = false
-        buttonStartPause.text = "Start"
+        buttonStartPause.text = "Iniciar"
+    }
+
+    private fun resetTimer() {
+        if (isTimerRunning) {
+            countDownTimer.cancel()
+            isTimerRunning = false
+        }
+        timeLeftInMillis = startTimeInMillis
+        updateCountDownText()
+        updateProgressBar()
+        buttonStartPause.text = "Iniciar"
     }
 
     private fun updateCountDownText() {
@@ -133,6 +151,7 @@ class MainActivity : AppCompatActivity() {
         val progress = progressBarXP.progress
 
         when {
+            progress >= 99 -> imageView.setImageResource(digimonImages[4])
             progress >= 75 -> imageView.setImageResource(digimonImages[3])
             progress >= 50 -> imageView.setImageResource(digimonImages[2])
             progress >= 25 -> imageView.setImageResource(digimonImages[1])

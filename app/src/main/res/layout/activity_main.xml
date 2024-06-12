@@ -5,7 +5,6 @@
     android:background="@drawable/backmain"
     tools:context=".MainActivity">
 
-    <!-- TextView para mostrar a atividade selecionada -->
     <TextView
         android:id="@+id/textViewActivity"
         android:layout_width="wrap_content"
@@ -47,14 +46,27 @@
         android:max="100"
         android:progress="0" />
 
-    <Button
-        android:id="@+id/buttonStartPause"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/progressBarXP"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Iniciar" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonReset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resetar" />
+
+        <Button
+            android:id="@+id/buttonStartPause"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Iniciar" />
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/settingsButton"
